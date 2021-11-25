@@ -5,7 +5,7 @@ import Navbar from './component/Navbar';
 import Countries from './component/Countries';
 import CountryInfo from './component/CountryInfo';
 import { dataLoading, loadDataThunk, selectData } from './redux/covid/covid';
-import countriesNames from './component/CountriesName';
+import countriesNames from './component/CountriesNames';
 
 function App() {
   const countries = useSelector((state) => state.covidReducer.countries);
