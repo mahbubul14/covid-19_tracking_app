@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { BsChevronLeft } from 'react-icons/bs';
+import '../styles/navbar.css';
 
 const Navbar = () => {
   const history = useHistory();

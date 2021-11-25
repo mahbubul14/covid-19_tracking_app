@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import Navbar from './component/Navbar';
-import Countries from './component/Countries';
-import CountryInfo from './component/CountryInfo';
-import { dataLoading, loadDataThunk, selectData } from './redux/covid/covid';
-import countriesNames from './component/CountriesNames';
-import './app.css';
+import Navbar from './Navbar';
+import Countries from './Countries';
+import CountryInfo from './CountryInfo';
+import { dataLoading, loadDataThunk, selectData } from '../redux/covid/covid';
+import countriesNames from './CountriesNames';
+import '../styles/app.css';
 
 function App() {
   const countries = useSelector((state) => state.covidReducer.countries);

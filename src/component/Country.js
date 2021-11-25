@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { BiChevronRightCircle } from 'react-icons/bi';
 import countriesNames from './CountriesNames';
+import '../styles/country.css';
 
 const Country = ({
   country, totalConfirmed, handleClick,
