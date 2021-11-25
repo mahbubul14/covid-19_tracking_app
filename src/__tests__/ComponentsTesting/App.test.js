@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import App from '../../App';
+import App from '../../component/App';
 import { covidReducer } from '../../redux/covid/covid';
 
 const reducer = combineReducers({
