@@ -1,21 +1,39 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import Navbar from './component/Navbar';
-import Details from './component/Details';
-import Items from './component/Items';
-import './App.css';
+import Countries from './component/Countries';
+import CountryInfo from './component/CountryInfo';
+import { dataLoading, loadDataThunk, selectData } from './redux/covid/covid';
+import countriesNames from './component/CountriesName';
 
 function App() {
+  const countries = useSelector((state) => state.covidReducer.countries);
+  const total = useSelector((state) => state.covidReducer.total);
+  const load = useSelector((state) => state.covidReducer.loading);
+  const currentCntry = useSelector((state) => state.covidReducer.currentCountry);
+  const isoName = countriesNames[currentCntry];
+
+  const mapImg = isoName ? `https://raw.githubusercontent.com/djaiss/mapsicon/33ba28808f8d32b5bae0ffada9cadd07073852e1/all/${isoName.toLowerCase()}/vector.svg` : '/World_map.png';
+  const dispatch = useDispatch();
+
+  const handleClick = (country) => dispatch(selectData(country));
+  useEffect(() => {
+    dispatch(dataLoading());
+    dispatch(loadDataThunk());
+  }, [dispatch]);
   return (
-    <Router>
+    <div className="app">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Items />} />
-      </Routes>
-      <Routes>
-        <Route path="/details" element={<Details />} />
-      </Routes>
-    </Router>
+      <Switch>
+        <Route exact path="/">
+          <Countries countries={countries} total={total} loading={load} handleClick={handleClick} />
+        </Route>
+        <Route exact path="/country">
+          <CountryInfo current={currentCntry} image={mapImg} />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
