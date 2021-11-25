@@ -5,7 +5,12 @@ import Query from '../../component/Query';
 describe('Searching', () => {
   it('renderers search correctly', () => {
     const tree = renderer
-      .create(<Query handleChange={() => 7 + 4} />)
+      .create(
+        <Query
+          country="China"
+          handleChange={() => 7 + 4}
+        />,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

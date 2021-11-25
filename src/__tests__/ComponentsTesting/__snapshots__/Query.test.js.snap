@@ -6,13 +6,11 @@ exports[`Searching renderers search correctly 1`] = `
 >
   <span
     className="search-by"
-  >
-    Stats by Country
-  </span>
+  />
   <input
     className="input-search"
     onChange={[Function]}
-    placeholder="Enter country name"
+    placeholder="Enter country name ..."
     type="text"
   />
 </form>
