@@ -13,7 +13,7 @@ This Mobile web applicat is a Covid-19 data tracking App by Country , the data i
 
 ## Live Demo
 
-- N/A
+- [Live Demo Link](https://competent-bartik-b0682f.netlify.app/#/)
 
 ## Getting Started
 
